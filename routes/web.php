@@ -18,9 +18,4 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::group(['middleware' => ['auth']], function() {
-    Route::group(['prefix' => '/plans', 'namespace' => 'Injections'], function() {
-        Route::get('/', ['as' => 'plans.create', '' => 'PlanInjectionController@create']);
-    });
-});
+Route::get('/plans', 'Plan\\PlanInjectionController@create')->name('plans.create');
