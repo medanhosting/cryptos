@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Plan</div>
+                    <div class="panel-heading">Plan <button type="button" class="btn btn-primary btn-xs pull-right" :class="{ 'btn-primary' : !is_saving, 'btn-success' : is_saving }" @click="save">Save</button></div>
 
                     <div class="panel-body">
 
@@ -90,7 +90,7 @@
                         year: ''
                     }
                 ],
-                hashrate: ''
+                is_saving: false
             };
         },
         methods: {
@@ -117,6 +117,12 @@
                 console.log('index', index);
 
                 this.investing_more.splice(index, 1);
+            },
+            save() {
+                this.is_saving = true;
+
+                
+
             }
         }
     }

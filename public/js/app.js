@@ -17854,7 +17854,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 month: '',
                 year: ''
             }],
-            hashrate: ''
+            is_saving: false
         };
     },
 
@@ -17881,6 +17881,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             console.log('index', index);
 
             this.investing_more.splice(index, 1);
+        },
+        save: function save() {
+            this.is_saving = true;
         }
     }
 });
@@ -48267,7 +48270,18 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "panel panel-default"
   }, [_c('div', {
     staticClass: "panel-heading"
-  }, [_vm._v("Plan")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("Plan "), _c('button', {
+    staticClass: "btn btn-primary btn-xs pull-right",
+    class: {
+      'btn-primary': !_vm.is_saving, 'btn-success': _vm.is_saving
+    },
+    attrs: {
+      "type": "button"
+    },
+    on: {
+      "click": _vm.save
+    }
+  }, [_vm._v("Save")])]), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
   }, [_c('form', [_c('div', {
     staticClass: "form-group"
