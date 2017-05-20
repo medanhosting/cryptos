@@ -9,6 +9,11 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+Vue.use(require('vue-resource'));
+Vue.use(require('vue-select'));
+Vue.use(require('vue-moment'));
+Vue.use(require('vue-strap'));
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -17,6 +22,8 @@ window.Vue = require('vue');
 
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('plan', require('./components/Plan.vue'));
+Vue.component('ym-picker', require('./components/MonthYearPicker.vue'));
+Vue.component('investing-quantity', require('./components/InvestingQuantity.vue'));
 
 const app = new Vue({
     el: '#app'
