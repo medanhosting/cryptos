@@ -20,6 +20,8 @@ class CreatePlansTable extends Migration
             $table->string('plan_date');
             $table->tinyInteger('reinvest')->default(1);
             $table->integer('reinvest_period_id')->unsigned()->default(1);
+            $table->integer('term')->unsigned()->default(1);
+            $table->integer('stop_reinvesting_term')->unsigned()->default(1);
 
             $table->timestamps();
             $table->softDeletes();
@@ -44,6 +46,8 @@ class CreatePlansTable extends Migration
 //starting_row
 //reinvest
 //reinvest_period_id
+//term
+//stop_reinvesting_term
 //created_at
 //updated_at
 //deleted_at
