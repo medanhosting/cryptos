@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReinvestsTable extends Migration
+class CreateWithdrawalsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateReinvestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reinvests', function (Blueprint $table) {
+        Schema::create('withdrawals', function (Blueprint $table) {
             $table->increments('id');
             $table->string('value');
             $table->integer('currency_id')->unsigned();
             $table->integer('plan_id')->unsigned();
-            $table->string('reinvest_date');
-
+            $table->string('withdrawal_date');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -32,7 +30,7 @@ class CreateReinvestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reinvests');
+        Schema::dropIfExists('withdrawals');
     }
 }
 
@@ -40,7 +38,7 @@ class CreateReinvestsTable extends Migration
 //value
 //currency_id
 //plan_id
-//reinvest_date
+//withdrawal_date
 //created_at
 //updated_at
 //deleted_at
