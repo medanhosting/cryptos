@@ -1,5 +1,12 @@
 <template>
     <div class="container">
+        <div class="loader" v-show="is_saving">
+            <div class="loader-inner">
+                <div class="inner-load">
+                    <grid-loader :loading="is_saving"></grid-loader>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -62,13 +69,15 @@
     import vselect from 'vue-select';
     import picker from './MonthYearPicker.vue';
     import iq from './InvestingQuantity.vue';
+    import grid_loader from 'vue-spinner/src/GridLoader.vue';
 
     export default {
         components: {
             'v-select': vselect,
             'select-ym': picker,
             'Vue': Vue,
-            'iq': iq
+            'iq': iq,
+            'grid-loader': grid_loader
         },
         mounted() {
             console.log('Component mounted.')
@@ -121,7 +130,7 @@
             save() {
                 this.is_saving = true;
 
-                
+
 
             }
         }
@@ -129,6 +138,33 @@
 </script>
 
 <style>
+    .loader {
+        position: absolute;
+        background: rgba(0,0,0,0.5);
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 9999999;
+    }
+
+    .loader div.loader-inner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+
+    .loader div.loader-inner div.inner-load {
+        position: relative;
+        left: -50%;
+    }
+
+    .loader div.loader-inner div.inner-load p {
+        color: #fff;
+        text-align: center;
+        font-weight: lighter;
+    }
+
     .dropdown-toggle {
         height: 36px;
     }

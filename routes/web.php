@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/plans', 'Plan\\PlanInjectionController@create')->name('plans.create');
+Route::post('/plans', 'Plan\\PlanInjectionController@store')->name('plans.create');

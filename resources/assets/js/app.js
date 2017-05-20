@@ -13,6 +13,7 @@ Vue.use(require('vue-resource'));
 Vue.use(require('vue-select'));
 Vue.use(require('vue-moment'));
 Vue.use(require('vue-strap'));
+Vue.use(require('vue-spinner'));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

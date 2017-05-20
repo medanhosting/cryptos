@@ -15,4 +15,8 @@ class PlanInjectionController extends Controller {
         return view('injections.plan');
     }
 
+    public function store(StorePlanRequest) {
+
+    }
+
 }
