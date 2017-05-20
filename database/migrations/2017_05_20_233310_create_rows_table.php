@@ -21,6 +21,7 @@ class CreateRowsTable extends Migration
             $table->string('date_invested')->nullable();
             $table->integer('month_invested')->nullable();
             $table->integer('year_invested')->nullable();
+            $table->integer('reinvest_id')->nullable();
             $table->integer('expected_difficulty_id')->nullable();
             $table->integer('actual_difficulty_id')->nullable();
             $table->tinyInteger('pulled_out')->default(0);
@@ -49,6 +50,7 @@ class CreateRowsTable extends Migration
 //date_invested
 //month_invested
 //year_invested
+//reinvest_id
 //expected_difficulty_id
 //actual_difficulty_id
 //pulled_out

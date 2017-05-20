@@ -9,7 +9,7 @@ class Row extends Model {
     protected $table = 'rows';
     protected $primaryKey = 'id';
     protected $fillable = ['plan_id', 'hashrate_id', 'quantity', 'date_invested', 'month_invested', 'month_invested',
-        'year_invested', 'expected_difficulty_id', 'actual_difficulty_id', 'pulled_out', 'would_be_id'];
+        'year_invested', 'reinvest_id', 'expected_difficulty_id', 'actual_difficulty_id', 'pulled_out', 'would_be_id'];
 
 }
 
@@ -20,6 +20,7 @@ class Row extends Model {
 //date_invested
 //month_invested
 //year_invested
+//reinvest_id
 //expected_difficulty_id
 //actual_difficulty_id
 //pulled_out
