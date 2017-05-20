@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Plan;
 
+use App\Http\Requests\StorePlanRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,7 +16,7 @@ class PlanInjectionController extends Controller {
         return view('injections.plan');
     }
 
-    public function store(StorePlanRequest) {
+    public function store(StorePlanRequest $request) {
 
     }
 

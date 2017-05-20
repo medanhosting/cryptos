@@ -13,7 +13,7 @@ class StorePlanRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class StorePlanRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'starting_quantity' => 'required',
+            'starting_hashrate' => 'required',
+            'reinvest' => '',
+            'reinvest_period' => '',
+            'investing_more' => ''
         ];
     }
 }
