@@ -13,6 +13,15 @@ class Difficulty extends Model {
     protected $primaryKey = 'id';
     protected $fillable = ['difficulty_date', 'difficulty', 'next_difficulty', 'is_current_difficulty'];
 
+    public function expected_rows() {
+        return $this->belongsToMany(Row::class, 'rows', 'id', 'expected_difficulty_id');
+    }
+
+    public function actual_rows() {
+        return $this->belongsToMany(Row::class, 'rows', 'id', 'actual_difficulty_id');
+    }
+
+
 }
 
 //id

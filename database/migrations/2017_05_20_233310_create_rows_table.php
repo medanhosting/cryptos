@@ -24,8 +24,6 @@ class CreateRowsTable extends Migration
             $table->integer('reinvest_id')->nullable();
             $table->integer('expected_difficulty_id')->nullable();
             $table->integer('actual_difficulty_id')->nullable();
-            $table->tinyInteger('pulled_out')->default(0);
-            $table->integer('would_be_id')->unsigned()->nullable();
 
             $table->timestamps();
             $table->softDeletes();
@@ -53,8 +51,6 @@ class CreateRowsTable extends Migration
 //reinvest_id
 //expected_difficulty_id
 //actual_difficulty_id
-//pulled_out
-//would_be_id (links to pulled out)
 //created_at
 //updated_at
 //deleted_at

@@ -13,4 +13,16 @@ class Currency extends Model {
     protected $primaryKey = 'id';
     protected $fillable = ['name', 'slug', 'code'];
 
+    public function plans() {
+        return $this->belongsToMany(Plan::class, 'plans', 'currency_id', 'id');
+    }
+
+    public function reinvests() {
+        return $this->belongsToMany(Reinvest::class, 'reinvests', 'currency_id', 'id');
+    }
+
+    public function withdrawals() {
+        return $this->belongsToMany(Withdrawal::class, 'withdrawals', 'currency_id', 'id');
+    }
+
 }

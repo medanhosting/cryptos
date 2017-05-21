@@ -13,6 +13,10 @@ class ReinvestPeriod extends Model {
     protected $primaryKey = 'id';
     protected $fillable = ['name', 'slug'];
 
+    public function plans() {
+        return $this->belongsToMany(Plan::class, 'plans', 'reinvest_period_id', 'id');
+    }
+
 }
 
 //id

@@ -13,6 +13,22 @@ class Balance extends Model {
     protected $primaryKey = 'id';
     protected $fillable = ['plan_id', 'row_id', 'row_would_be_id', 'balance', 'balance_date', 'withdrawal_id'];
 
+    public function plan() {
+        return $this->belongsTo(Plan::class, 'plan_id', 'id');
+    }
+
+    public function row() {
+        return $this->hasOne(Row::class, 'id', 'row_id');
+    }
+
+    public function row_would_be() {
+        return $this->hasOne(Row::class, 'id', 'row_would_be_id');
+    }
+
+    public function withdrawal() {
+        return $this->hasOne(Withdrawal::class, 'id', 'withdrawal_id');
+    }
+
 }
 
 //id

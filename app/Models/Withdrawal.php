@@ -13,6 +13,14 @@ class Withdrawal extends Model {
     protected $primaryKey = 'id';
     protected $fillable = ['value', 'currency_id', 'plan_id', 'withdrawal_date'];
 
+    public function plan() {
+        return $this->belongsTo(Plan::class, 'plan_id', 'id');
+    }
+
+    public function currency() {
+        return $this->hasOne(Currency::class, 'id', 'currency_id');
+    }
+
 }
 
 //id

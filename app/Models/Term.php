@@ -13,6 +13,15 @@ class Term extends Model {
     protected $primaryKey = 'id';
     protected $fillable = ['name', 'slug', 'year_quantity'];
 
+    public function start_plans() {
+        return $this->belongsToMany(Plan::class, 'plans', 'id', 'term_id');
+    }
+
+
+    public function stop_plans() {
+        return $this->belongsToMany(Plan::class, 'plans', 'id', 'stop_reinvesting_term_id');
+    }
+
 }
 
 //id

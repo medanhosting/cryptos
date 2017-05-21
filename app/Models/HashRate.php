@@ -13,6 +13,10 @@ class HashRate extends Model {
     protected $primaryKey = 'id';
     protected $fillable = ['name', 'slug'];
 
+    public function rows() {
+        return $this->belongsToMany(Row::class, 'rows', 'id', 'hashrate_id');
+    }
+
 }
 
 //id
