@@ -18,7 +18,9 @@ class CreateTermsTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->integer('year_quantity');
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
