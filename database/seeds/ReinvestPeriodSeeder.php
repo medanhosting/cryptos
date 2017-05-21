@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use \App\Models\ReinvestPeriod;
 
 class ReinvestPeriodSeeder extends Seeder
 {
@@ -9,8 +10,17 @@ class ReinvestPeriodSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-        //
+    public function run() {
+
+        $periods = ['Daily', 'Monthly', 'Annually'];
+
+        for($i = 0; $i < count($periods); $i++) {
+            $period = new ReinvestPeriod;
+            $period->name = $periods[$i];
+            $period->slug = str_slug($periods[$i]);
+
+            $period->save();
+        }
+
     }
 }
