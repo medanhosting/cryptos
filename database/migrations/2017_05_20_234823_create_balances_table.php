@@ -17,10 +17,11 @@ class CreateBalancesTable extends Migration
             $table->increments('id');
             $table->integer('plan_id')->unsigned();
             $table->integer('row_id')->unsigned();
-            $table->integer('row_would_be_id')->unsigned();
-            $table->integer('withdrawal_id')->unsigned();
+            $table->integer('row_would_be_id')->unsigned()->nullable();
+            $table->integer('withdrawal_id')->unsigned()->nullable();
             $table->string('balance');
             $table->string('balance_date');
+            $table->string('balance_hash_rate')->nullable();
             $table->timestamps();
         });
     }
@@ -42,6 +43,7 @@ class CreateBalancesTable extends Migration
 //row_would_be_id (after withdrawal)
 //balance
 //balance_date
+//balance_hash_rate
 //withdrawal_id
 //created_at
 //updated_at

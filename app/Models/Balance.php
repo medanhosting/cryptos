@@ -11,7 +11,7 @@ class Balance extends Model {
 
     protected $table = 'balances';
     protected $primaryKey = 'id';
-    protected $fillable = ['plan_id', 'row_id', 'row_would_be_id', 'balance', 'balance_date', 'withdrawal_id'];
+    protected $fillable = ['plan_id', 'row_id', 'row_would_be_id', 'balance', 'balance_date', 'balance_hash_rate', 'withdrawal_id'];
 
     public function plan() {
         return $this->belongsTo(Plan::class, 'plan_id', 'id');
@@ -37,6 +37,7 @@ class Balance extends Model {
 //row_would_be_id (after withdrawal)
 //balance
 //balance_date
+//balance_hash_rate
 //withdrawal_id
 //created_at
 //updated_at

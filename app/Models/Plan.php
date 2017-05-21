@@ -12,7 +12,7 @@ class Plan extends Model {
 
     protected $table = 'plans';
     protected $primaryKey = 'id';
-    protected $fillable = ['user_id', 'currency_id', 'plan_date', 'starting_row', 'reinvest', 'reinvest_period_id', 'term_id', 'stop_reinvesting_term_id'];
+    protected $fillable = ['user_id', 'currency_id', 'plan_date', 'starting_row_id', 'reinvest', 'reinvest_period_id', 'term_id', 'stop_reinvesting_term_id'];
 
     public function user() {
         return $this->belongsTo(User::class, 'user_id', 'id');
@@ -38,6 +38,10 @@ class Plan extends Model {
         return $this->hasOne(Term::class, 'id', 'stop_reinvesting_term_id');
     }
 
+    public function starting_row() {
+        return $this->hasOne(Row::class, 'id', 'starting_row_id');
+    }
+
     public function rows() {
         return $this->hasMany(Row::class, 'plan_id', 'id');
     }
@@ -52,7 +56,7 @@ class Plan extends Model {
 //user_id
 //currency_id
 //plan_date
-//starting_row
+//starting_row_id
 //reinvest
 //reinvest_period_id
 //term_id

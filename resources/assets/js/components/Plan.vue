@@ -89,6 +89,7 @@
         },
         mounted() {
             console.log('Component mounted.')
+            this.token = $('meta[name=csrf-token]').attr("content");
         },
         data() {
             return {
@@ -110,7 +111,8 @@
                         year: ''
                     }
                 ],
-                is_saving: false
+                is_saving: false,
+                token: ''
             };
         },
         methods: {
@@ -140,8 +142,24 @@
             },
             save() {
                 this.is_saving = true;
+                var self = this;
 
+                var obj = {
+                    term: this.investment_term,
+                    stop_term: this.stop_reinvesting,
+                    starting_quantity: this.starting_quantity,
+                    starting_hashrate: this.starting_hashrate,
+                    reinvest: this.reinvest,
+                    reinvest_period: this.reinvest_period,
+                    reinvestments: this.investing_more,
+                    _token: this.token
+                };
 
+                this.$http.post('/plans', obj).then(function(response) {
+                    console.log('res', response);
+                    window.location.href = '/home';
+                    self.is_saving = false;
+                });
 
             }
         }

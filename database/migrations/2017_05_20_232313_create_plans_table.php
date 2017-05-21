@@ -17,6 +17,7 @@ class CreatePlansTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('currency_id')->unsigned()->default(1);
+            $table->integer('starting_row_id')->unsigned()->nullable();
             $table->string('plan_date');
             $table->tinyInteger('reinvest')->default(1);
             $table->integer('reinvest_period_id')->unsigned()->default(1);

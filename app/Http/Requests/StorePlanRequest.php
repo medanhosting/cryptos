@@ -24,11 +24,13 @@ class StorePlanRequest extends FormRequest
     public function rules()
     {
         return [
+            'term' => 'required',
+            'stop_term' => 'required',
             'starting_quantity' => 'required',
             'starting_hashrate' => 'required',
             'reinvest' => '',
             'reinvest_period' => '',
-            'investing_more' => ''
+            'reinvestments' => ''
         ];
     }
 }
