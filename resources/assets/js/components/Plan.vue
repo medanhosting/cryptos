@@ -17,7 +17,7 @@
                         <form>
                             <div class="form-group">
                                 <h4>What is your starting hashrate?</h4>
-                                <div class="col-md-4">
+                                <div class="col-md-2">
                                     <label>Starting Quantity</label>
                                     <input type="number" class="form-control" v-model="starting_quantity" />
                                 </div>
@@ -37,6 +37,14 @@
                                 <div class="col-md-2">
                                     <label>Reinvest Period</label>
                                     <v-select placeholder="Reinvest Period" :value.sync="reinvest_period" :options="periods"></v-select>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Investment Term</label>
+                                    <v-select placeholder="Investment Term" :value.sync="investment_term" :options="terms"></v-select>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Stop Reinvesting</label>
+                                    <v-select placeholder="Stop Reinvesting" :value.sync="stop_reinvesting" :options="terms"></v-select>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -84,12 +92,15 @@
         },
         data() {
             return {
+                terms: ['10 Years', '9 Years', '8 Years', '7 Years', '6 Years', '5 Years', '4 Years', '3 Years', '2 Years', '1 Years'],
+                investment_term: '10 Years',
+                stop_reinvesting: '6 Years',
                 hashrates: ['TH/s', 'GH/s', 'MH/s', 'kH/s'],
                 periods: ['Daily', 'Monthly', 'Annually'],
                 starting_quantity: 1,
                 starting_hashrate: 'TH/s',
                 reinvest: true,
-                reinvest_period: 'Monthly',
+                reinvest_period: 'Daily',
                 investing_more: [
                     {
                         quantity: '',

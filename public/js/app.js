@@ -19163,6 +19163,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -19182,12 +19190,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     data: function data() {
         return {
+            terms: ['10 Years', '9 Years', '8 Years', '7 Years', '6 Years', '5 Years', '4 Years', '3 Years', '2 Years', '1 Years'],
+            investment_term: '10 Years',
+            stop_reinvesting: '6 Years',
             hashrates: ['TH/s', 'GH/s', 'MH/s', 'kH/s'],
             periods: ['Daily', 'Monthly', 'Annually'],
             starting_quantity: 1,
             starting_hashrate: 'TH/s',
             reinvest: true,
-            reinvest_period: 'Monthly',
+            reinvest_period: 'Daily',
             investing_more: [{
                 quantity: '',
                 hashrate: '',
@@ -50522,7 +50533,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('form', [_c('div', {
     staticClass: "form-group"
   }, [_c('h4', [_vm._v("What is your starting hashrate?")]), _vm._v(" "), _c('div', {
-    staticClass: "col-md-4"
+    staticClass: "col-md-2"
   }, [_c('label', [_vm._v("Starting Quantity")]), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
@@ -50621,6 +50632,32 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "update:value": function($event) {
         _vm.reinvest_period = $event
+      }
+    }
+  })], 1), _vm._v(" "), _c('div', {
+    staticClass: "col-md-2"
+  }, [_c('label', [_vm._v("Investment Term")]), _vm._v(" "), _c('v-select', {
+    attrs: {
+      "placeholder": "Investment Term",
+      "value": _vm.investment_term,
+      "options": _vm.terms
+    },
+    on: {
+      "update:value": function($event) {
+        _vm.investment_term = $event
+      }
+    }
+  })], 1), _vm._v(" "), _c('div', {
+    staticClass: "col-md-2"
+  }, [_c('label', [_vm._v("Stop Reinvesting")]), _vm._v(" "), _c('v-select', {
+    attrs: {
+      "placeholder": "Stop Reinvesting",
+      "value": _vm.stop_reinvesting,
+      "options": _vm.terms
+    },
+    on: {
+      "update:value": function($event) {
+        _vm.stop_reinvesting = $event
       }
     }
   })], 1), _vm._v(" "), _c('div', {
